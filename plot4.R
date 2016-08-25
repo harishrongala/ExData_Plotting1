@@ -1,5 +1,12 @@
+## URL of data file
+url<-"https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+## Download the data file
+if(!file.exists("./data.zip"))
+        download.file(url,"./data.zip")
+## Unzip the file
+unzip("./data.zip")
 ## Find the observations of 1/2/2007 and 2/2/2007
-date<-grep("^(1.2.2007|2.2.2007)",readLines("household_power_consumption.txt"))
+date<-grep("^(1.2.2007|2.2.2007)",readLines("./household_power_consumption.txt"))
 ## Read the header line
 sav<-readLines("household_power_consumption.txt")[1]
 ## Read filtered data and append it to header data 
